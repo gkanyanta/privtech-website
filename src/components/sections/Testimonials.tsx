@@ -2,25 +2,25 @@ import { QuoteIcon } from '@/components/ui/Icons'
 
 const testimonials = [
   {
-    quote: "Privtech transformed our IT operations. Their team understood our challenges as an NGO and provided solutions within our budget. The domain email migration was seamless.",
-    author: "Grace Mwanza",
+    quote: "Privtech Solutions has been instrumental in supplying quality equipment for our mining operations. Their understanding of the industry and reliable delivery has made them our preferred partner.",
+    author: "James Mulenga",
     role: "Operations Manager",
-    company: "Youth Development Foundation",
-    initials: "GM",
+    company: "Copperbelt Mining Company",
+    initials: "JM",
   },
   {
-    quote: "As a growing business, we needed an IT partner who could scale with us. Privtech's managed support gives us peace of mind knowing our systems are monitored and maintained.",
+    quote: "The agricultural inputs we receive from Privtech have consistently met our quality standards. Their team understands the farming calendar and ensures timely delivery for each season.",
+    author: "Grace Tembo",
+    role: "Farm Manager",
+    company: "Green Valley Farms",
+    initials: "GT",
+  },
+  {
+    quote: "From IT infrastructure to ongoing support, Privtech has helped modernize our operations. Their consultancy services provided valuable insights for our digital transformation journey.",
     author: "Kenneth Banda",
     role: "Managing Director",
     company: "Lusaka Logistics Ltd",
     initials: "KB",
-  },
-  {
-    quote: "The payment gateway integration was a game-changer for our school. Parents can now pay fees online, and our admin team spends less time on manual reconciliation.",
-    author: "Sarah Phiri",
-    role: "Bursar",
-    company: "Meanwood Academy",
-    initials: "SP",
   },
 ]
 
@@ -32,7 +32,7 @@ export default function Testimonials() {
           <h2 className="text-white">What Our Clients Say</h2>
         </div>
         <p className="section-subheading text-primary-100">
-          Trusted by businesses and organizations across Zambia.
+          Trusted by businesses across Zambia and the region.
         </p>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

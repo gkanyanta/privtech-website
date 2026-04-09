@@ -1,19 +1,20 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '@/components/ui/Icons'
 import { LinkedInIcon, FacebookIcon, TwitterIcon } from '@/components/ui/Icons'
 
 const footerLinks = {
   services: [
-    { name: 'Cybersecurity', href: '/services#cybersecurity' },
-    { name: 'IT Support', href: '/services#it-support' },
-    { name: 'Web Development', href: '/services#web-development' },
-    { name: 'App Development', href: '/services#app-development' },
-    { name: 'Cloud & Email', href: '/services#cloud-email' },
-    { name: 'Payment Integration', href: '/services#payments' },
+    { name: 'Commodity Sourcing', href: '/services#commodity-sourcing' },
+    { name: 'Mining Equipment', href: '/services#mining-equipment' },
+    { name: 'Agricultural Inputs', href: '/services#agriculture' },
+    { name: 'ICT Solutions', href: '/services#ict-solutions' },
+    { name: 'Construction', href: '/services#construction' },
+    { name: 'Consultancy', href: '/services#consultancy' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
-    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Our Services', href: '/services' },
     { name: 'Contact', href: '/contact' },
   ],
 }
@@ -27,17 +28,17 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Link href="/" className="mb-6 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
-                <span className="text-xl font-bold text-white">P</span>
-              </div>
-              <div>
-                <span className="text-xl font-bold text-white">Privtech</span>
-                <span className="text-xl font-medium text-neutral-400"> Solutions</span>
-              </div>
+            <Link href="/" className="mb-6 inline-block">
+              <Image
+                src="/privtech-logo.png"
+                alt="Privtech Solutions Limited"
+                width={200}
+                height={64}
+                className="h-16 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mb-6 text-neutral-400">
-              Your trusted IT partner in Zambia. We deliver secure, reliable technology solutions for businesses of all sizes.
+              A multifaceted company excelling in commodity sourcing, mining equipment, agricultural inputs, ICT solutions, construction, and consultancy.
             </p>
             <div className="flex gap-4">
               <a

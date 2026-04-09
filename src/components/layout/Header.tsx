@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Button from '@/components/ui/Button'
 import { MenuIcon, XMarkIcon } from '@/components/ui/Icons'
@@ -10,7 +11,6 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Case Studies', href: '/case-studies' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -39,16 +39,17 @@ export default function Header() {
       }`}
     >
       <nav className="container-custom" aria-label="Main navigation">
-        <div className="flex h-16 items-center justify-between md:h-20">
+        <div className="flex h-20 items-center justify-between md:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2" aria-label="Privtech Solutions - Home">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
-              <span className="text-xl font-bold text-white">P</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-bold text-primary-700">Privtech</span>
-              <span className="text-xl font-medium text-neutral-600"> Solutions</span>
-            </div>
+            <Image
+              src="/privtech-logo.png"
+              alt="Privtech Solutions Limited"
+              width={200}
+              height={64}
+              className="h-14 w-auto md:h-16"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

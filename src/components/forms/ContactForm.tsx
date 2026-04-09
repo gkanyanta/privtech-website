@@ -6,14 +6,12 @@ import Button from '@/components/ui/Button'
 import { CheckCircleIcon } from '@/components/ui/Icons'
 
 const services = [
-  'Cybersecurity',
-  'IT Support & Managed Services',
-  'Network & Infrastructure',
-  'Website Development',
-  'App Development',
-  'Digital Marketing',
-  'Cloud & Email Solutions',
-  'Payment Gateway Integration',
+  'Commodity Sourcing & Supply',
+  'Mining Equipment & Consumables',
+  'Agricultural Inputs & Products',
+  'ICT Equipment, Solutions & Services',
+  'Construction',
+  'Consultancy',
   'Other',
 ]
 

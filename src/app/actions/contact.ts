@@ -32,23 +32,21 @@ export async function submitContactForm(formData: FormData): Promise<FormState> 
     }
   }
 
-  // Check if SMTP is configured
-  const smtpHost = process.env.SMTP_HOST
-  const smtpPort = process.env.SMTP_PORT
-  const smtpUser = process.env.SMTP_USER
-  const smtpPass = process.env.SMTP_PASS
+  // SendGrid configuration
+  const sendgridApiKey = process.env.SENDGRID_API_KEY
+  const senderEmail = process.env.SENDER_EMAIL || 'sales@privtech.net'
   const recipientEmail = process.env.RECIPIENT_EMAIL || 'sales@privtech.net'
 
-  // If SMTP is not configured, log the submission (development mode)
-  if (!smtpHost || !smtpUser || !smtpPass) {
-    console.log('=== Contact Form Submission ===')
+  // If SendGrid is not configured, log the submission (development mode)
+  if (!sendgridApiKey) {
+    console.log('=== Contact Form Submission (No SendGrid API Key) ===')
     console.log('Name:', name)
     console.log('Email:', email)
     console.log('Company:', company || 'Not provided')
     console.log('Phone:', phone || 'Not provided')
     console.log('Service:', service || 'Not specified')
     console.log('Message:', message)
-    console.log('================================')
+    console.log('=====================================================')
 
     return {
       success: true,
@@ -57,22 +55,25 @@ export async function submitContactForm(formData: FormData): Promise<FormState> 
   }
 
   try {
-    // Create transporter with SMTP settings
+    // Create transporter with SendGrid SMTP settings
     const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: parseInt(smtpPort || '587'),
-      secure: smtpPort === '465',
+      host: 'smtp.sendgrid.net',
+      port: 587,
+      secure: false, // Use TLS
       auth: {
-        user: smtpUser,
-        pass: smtpPass,
+        user: 'apikey', // This is literally the string "apikey"
+        pass: sendgridApiKey, // Your SendGrid API key
       },
     })
 
     // Email content
     const mailOptions = {
-      from: `"Privtech Website" <${smtpUser}>`,
+      from: {
+        name: 'Privtech Website',
+        address: senderEmail, // Must be verified sender in SendGrid
+      },
       to: recipientEmail,
-      replyTo: email,
+      replyTo: email, // Reply goes to the person who submitted the form
       subject: `New Contact Form Submission${service ? ` - ${service}` : ''}`,
       text: `
 New contact form submission from the Privtech website:
@@ -96,18 +97,18 @@ This email was sent from the contact form on privtech.net
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: #2f8f63; color: white; padding: 20px; text-align: center; }
+    .header { background: #2563eb; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
     .content { padding: 20px; background: #f9f9f9; }
     .field { margin-bottom: 15px; }
-    .label { font-weight: bold; color: #2f8f63; }
-    .message { background: white; padding: 15px; border-left: 4px solid #2f8f63; margin-top: 20px; }
-    .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }
+    .label { font-weight: bold; color: #2563eb; }
+    .message { background: white; padding: 15px; border-left: 4px solid #2563eb; margin-top: 20px; }
+    .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; border-radius: 0 0 8px 8px; background: #f9f9f9; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h2>New Contact Form Submission</h2>
+      <h2 style="margin: 0;">New Contact Form Submission</h2>
     </div>
     <div class="content">
       <div class="field">
@@ -147,6 +148,13 @@ This email was sent from the contact form on privtech.net
     }
   } catch (error) {
     console.error('Error sending email:', error)
+
+    // Log more details for debugging
+    if (error instanceof Error) {
+      console.error('Error name:', error.name)
+      console.error('Error message:', error.message)
+    }
+
     return {
       success: false,
       message: 'There was an error sending your message. Please try again or contact us directly at sales@privtech.net.',

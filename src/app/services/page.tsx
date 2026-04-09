@@ -1,151 +1,138 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import {
-  ShieldIcon,
+  CubeIcon,
   WrenchIcon,
-  ServerIcon,
+  AcademicCapIcon,
   GlobeIcon,
-  DevicePhoneIcon,
-  MegaphoneIcon,
-  CloudIcon,
-  CreditCardIcon,
+  BuildingIcon,
+  ChartBarIcon,
   CheckCircleIcon,
 } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Our Services',
-  description: 'Explore Privtech Solutions IT services: cybersecurity, managed IT support, web development, app development, cloud solutions, digital marketing, and payment gateway integration in Zambia.',
+  description: 'Explore Privtech Solutions services: commodity sourcing, mining equipment, agricultural inputs, ICT solutions, construction, and business consultancy in Zambia.',
   openGraph: {
-    title: 'IT Services | Privtech Solutions',
-    description: 'Comprehensive IT solutions for Zambian businesses. From cybersecurity to web development, we have you covered.',
+    title: 'Services | Privtech Solutions',
+    description: 'Comprehensive solutions across multiple industries - commodities, mining, agriculture, ICT, construction, and consultancy.',
   },
 }
 
+// ===========================================
+// SERVICES IMAGES CONFIGURATION
+// ===========================================
+// To add images for each service:
+// 1. Add your images to the /public/services/ folder
+// 2. Name them: commodity.jpg, mining.jpg, agriculture.jpg, ict.jpg, construction.jpg, consultancy.jpg
+// Recommended image size: 800x600px (4:3 ratio)
+
 const services = [
   {
-    id: 'cybersecurity',
-    name: 'Cybersecurity',
-    description: 'Protect your business from threats with comprehensive security solutions tailored to your risk profile.',
-    icon: ShieldIcon,
+    id: 'commodity-sourcing',
+    name: 'Commodity Sourcing & Supply',
+    description: 'Privtech Solutions Limited is committed to sourcing a diverse range of commodities from trusted suppliers worldwide. Our dedication to quality, competitive pricing, and on-time delivery has positioned us as the preferred choice for businesses in search of reliable commodity solutions.',
+    icon: CubeIcon,
+    image: '/services/commodity.jpg',
     features: [
-      'Security assessments and vulnerability scanning',
-      'System hardening and configuration review',
-      'Security monitoring and incident response',
-      'Staff cybersecurity awareness training',
-      'Security policy development',
-      'Data protection and backup strategies',
+      'Diverse commodity range from global suppliers',
+      'Quality assurance and verification',
+      'Competitive pricing strategies',
+      'Reliable on-time delivery',
+      'Supply chain management',
+      'Custom sourcing solutions',
     ],
   },
   {
-    id: 'it-support',
-    name: 'IT Support & Managed Services',
-    description: 'Reliable technical support and proactive system management so you can focus on your core business.',
+    id: 'mining-equipment',
+    name: 'Mining Equipment & Consumables',
+    description: 'In the domain of mining, Privtech Solutions Limited stands as a trusted supplier of equipment and consumables. Our offerings encompass cutting-edge solutions designed to enhance safety, productivity, and efficiency in mining operations. We understand the unique needs and challenges of this industry.',
     icon: WrenchIcon,
+    image: '/services/mining.jpg',
     features: [
-      'Helpdesk support (remote and on-site)',
-      'Proactive system monitoring',
-      'Patch management and updates',
-      'Hardware and software troubleshooting',
-      'IT asset management',
-      'Vendor coordination and management',
+      'Heavy machinery and equipment',
+      'Mining consumables supply',
+      'Safety equipment and gear',
+      'Productivity enhancement solutions',
+      'Equipment maintenance support',
+      'Industry-specific expertise',
     ],
   },
   {
-    id: 'network',
-    name: 'Network & Infrastructure',
-    description: 'Design, deploy, and maintain robust network infrastructure that keeps your business connected.',
-    icon: ServerIcon,
+    id: 'agriculture',
+    name: 'Agricultural Inputs & Products',
+    description: 'Agriculture is the backbone of our society, and we are proud to support it with a comprehensive range of agricultural inputs and products. Our mission is to empower farmers and agricultural businesses by providing the tools and resources they need to achieve sustainable, high-yield farming practices.',
+    icon: AcademicCapIcon,
+    image: '/services/agriculture.jpg',
     features: [
-      'Network design and implementation',
-      'Wireless network setup',
-      'Firewall and security configuration',
-      'VPN setup for remote access',
-      'Server installation and maintenance',
-      'Network troubleshooting and optimization',
+      'Quality seeds and fertilizers',
+      'Farm equipment and machinery',
+      'Irrigation solutions',
+      'Crop protection products',
+      'Agricultural consulting services',
+      'Sustainable farming support',
     ],
   },
   {
-    id: 'web-development',
-    name: 'Website Design & Development',
-    description: 'Professional websites that represent your brand and help convert visitors into customers.',
+    id: 'ict-solutions',
+    name: 'ICT Equipment, Solutions & Services',
+    description: 'In the digital age, businesses rely on Information and Communication Technology for their operations. Privtech Solutions Limited offers a wide spectrum of hardware, software, networking and consulting services to ensure that businesses remain competitive and adaptable in the face of technological advancements.',
     icon: GlobeIcon,
+    image: '/services/ict.jpg',
     features: [
-      'Custom website design',
-      'Responsive mobile-friendly development',
-      'Content management system setup',
-      'E-commerce functionality',
-      'Website hosting and maintenance',
-      'SEO optimization',
+      'Hardware supply and installation',
+      'Software solutions and licensing',
+      'Network infrastructure design',
+      'Cybersecurity services',
+      'IT consulting and strategy',
+      'Cloud solutions and migration',
+      'Technical support and maintenance',
+      'Digital transformation services',
     ],
   },
   {
-    id: 'app-development',
-    name: 'App Development',
-    description: 'Custom mobile and web applications built to streamline your operations and serve your customers.',
-    icon: DevicePhoneIcon,
+    id: 'construction',
+    name: 'Construction',
+    description: 'We bring innovation and dedication to the field of construction, ensuring that projects are executed with the utmost quality and efficiency. Our services encompass various projects, from infrastructure development to commercial and residential construction. We take pride in delivering projects on time and within budget.',
+    icon: BuildingIcon,
+    image: '/services/construction.jpg',
     features: [
-      'Mobile app development (iOS & Android)',
-      'Web application development',
-      'Custom business software',
-      'System integrations',
-      'API development',
-      'Ongoing maintenance and support',
+      'Infrastructure development',
+      'Commercial construction',
+      'Residential construction',
+      'Project management',
+      'On-time project delivery',
+      'Budget adherence and cost control',
     ],
   },
   {
-    id: 'digital-marketing',
-    name: 'Digital Marketing & Social Media',
-    description: 'Grow your online presence and reach more customers through targeted digital strategies.',
-    icon: MegaphoneIcon,
+    id: 'consultancy',
+    name: 'Consultancy',
+    description: 'At Privtech Solutions Limited, our consultancy services are rooted in expertise and collaboration. We partner closely with our clients to identify challenges and provide tailored strategies to drive growth and success. We offer a range of consultancy services that can address your specific business needs.',
+    icon: ChartBarIcon,
+    image: '/services/consultancy.jpg',
     features: [
-      'Social media management',
-      'Content creation and strategy',
-      'Search engine optimization (SEO)',
-      'Online advertising campaigns',
-      'Email marketing',
-      'Analytics and reporting',
-    ],
-  },
-  {
-    id: 'cloud-email',
-    name: 'Cloud & Email Solutions',
-    description: 'Modern cloud services and professional email that help your team work efficiently from anywhere.',
-    icon: CloudIcon,
-    features: [
-      'Professional domain email setup',
-      'Microsoft 365 deployment',
-      'Google Workspace setup',
-      'Email migration services',
-      'Cloud storage solutions',
-      'Cloud backup services',
-    ],
-  },
-  {
-    id: 'payments',
-    name: 'Payment Gateway Integration',
-    description: 'Accept payments online for memberships, fees, subscriptions, and e-commerce with secure gateway setup.',
-    icon: CreditCardIcon,
-    features: [
-      'Mobile money integration (Airtel, MTN, Zamtel)',
-      'Card payment processing',
-      'E-commerce payment setup',
-      'Recurring billing and subscriptions',
-      'Payment reconciliation systems',
-      'Multi-currency support',
+      'Business strategy development',
+      'Process optimization',
+      'Market analysis and research',
+      'Risk assessment and management',
+      'Growth planning',
+      'Operational efficiency consulting',
     ],
   },
 ]
 
 export default function ServicesPage() {
   return (
-    <div className="pt-20 md:pt-24">
+    <div className="pt-24 md:pt-28">
       {/* Hero Section */}
       <section className="section bg-primary-900 african-pattern-strong">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-6 text-white">Our Services</h1>
             <p className="text-lg text-primary-100 md:text-xl">
-              Comprehensive IT solutions designed to help Zambian businesses thrive in the digital age.
+              Comprehensive solutions across multiple industries, empowering growth and prosperity for our clients and partners in Zambia and beyond.
             </p>
           </div>
         </div>
@@ -177,12 +164,17 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                     <Button href="/contact" variant="primary">
-                      Talk to Us About {service.name.split(' ')[0]}
+                      Enquire About {service.name.split(' ')[0]}
                     </Button>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 flex items-center justify-center">
-                      <service.icon className="h-24 w-24 text-neutral-400" />
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                      <Image
+                        src={service.image}
+                        alt={service.name}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -199,21 +191,21 @@ export default function ServicesPage() {
       <section className="section bg-neutral-50">
         <div className="container-custom">
           <div className="rounded-2xl bg-gradient-to-r from-primary-700 to-primary-800 px-6 py-12 text-center md:px-12 md:py-16">
-            <h2 className="mb-4 text-white">Not Sure Which Service You Need?</h2>
+            <h2 className="mb-4 text-white">Ready to Get Started?</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-100">
-              Contact us for a free consultation. We will assess your needs and recommend the right solutions for your business.
+              Contact us to discuss your requirements. Our team is ready to provide solutions tailored to your specific needs.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button href="/contact" variant="white" size="lg">
-                Request a Consultation
+                Request a Quote
               </Button>
               <Button
-                href="/case-studies"
+                href="/about"
                 variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-white/10"
               >
-                View Case Studies
+                Learn About Us
               </Button>
             </div>
           </div>

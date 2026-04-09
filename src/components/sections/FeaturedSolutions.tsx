@@ -1,42 +1,42 @@
 import Button from '@/components/ui/Button'
-import { EnvelopeIcon, CreditCardIcon, WrenchIcon, CheckCircleIcon } from '@/components/ui/Icons'
+import { CubeIcon, WrenchIcon, GlobeIcon, CheckCircleIcon } from '@/components/ui/Icons'
 
 const solutions = [
   {
-    title: 'Professional Domain Emails',
-    description: 'Move away from free email services. Get yourname@yourcompany.co.zm and build trust with every message.',
-    icon: EnvelopeIcon,
+    title: 'Global Commodity Sourcing',
+    description: 'Access quality commodities from our extensive network of trusted suppliers worldwide with competitive pricing and reliable delivery.',
+    icon: CubeIcon,
     features: [
-      'Custom domain email setup',
-      'Microsoft 365 or Google Workspace',
-      'Migration from existing accounts',
-      'Ongoing support and management',
+      'Global supplier network',
+      'Quality verification',
+      'Competitive pricing',
+      'Reliable logistics',
     ],
-    cta: 'Set Up Domain Email',
+    cta: 'Enquire Now',
   },
   {
-    title: 'Payment Gateway Integration',
-    description: 'Accept payments online for memberships, school fees, subscriptions, and e-commerce with local and international gateway support.',
-    icon: CreditCardIcon,
-    features: [
-      'Mobile money integration',
-      'Card payment processing',
-      'Recurring billing setup',
-      'E-commerce integration',
-    ],
-    cta: 'Enable Online Payments',
-  },
-  {
-    title: 'Managed IT Support',
-    description: 'Focus on running your business while we handle your technology. Proactive monitoring, maintenance, and responsive helpdesk support.',
+    title: 'Mining Solutions',
+    description: 'Complete equipment and consumables supply for mining operations, with expert support to enhance safety and productivity.',
     icon: WrenchIcon,
     features: [
-      'Proactive system monitoring',
-      'Regular maintenance & updates',
-      'Helpdesk support',
-      'On-site assistance when needed',
+      'Heavy machinery supply',
+      'Safety equipment',
+      'Mining consumables',
+      'Expert support',
     ],
-    cta: 'Get IT Support',
+    cta: 'Get Quote',
+  },
+  {
+    title: 'ICT & Digital Solutions',
+    description: 'Hardware, software, networking, and IT consulting services to keep your business competitive in the digital age.',
+    icon: GlobeIcon,
+    features: [
+      'Hardware & software',
+      'Network infrastructure',
+      'IT consulting',
+      'Technical support',
+    ],
+    cta: 'Learn More',
   },
 ]
 
@@ -48,7 +48,7 @@ export default function FeaturedSolutions() {
           <h2 className="text-neutral-900">Featured Solutions</h2>
         </div>
         <p className="section-subheading">
-          Popular services that help Zambian businesses operate more professionally and efficiently.
+          Key offerings that drive value for businesses across Zambia and the region.
         </p>
 
         <div className="grid gap-8 lg:grid-cols-3">

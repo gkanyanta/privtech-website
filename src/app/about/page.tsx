@@ -1,141 +1,140 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
-import { ShieldIcon, CheckCircleIcon } from '@/components/ui/Icons'
+import { CheckCircleIcon } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Privtech Solutions Limited - a trusted IT company in Zambia providing cybersecurity, managed IT support, and technology solutions for businesses.',
+  description: 'Learn about Privtech Solutions Limited - a multifaceted company in Zambia excelling in commodity sourcing, mining, agriculture, ICT, construction, and consultancy.',
   openGraph: {
     title: 'About Privtech Solutions',
-    description: 'Your trusted local IT partner in Zambia. Learn about our mission, values, and commitment to helping businesses succeed.',
+    description: 'A forward-thinking company committed to excellence, integrity, and customer satisfaction across multiple industries.',
   },
 }
 
 const values = [
   {
+    name: 'Quality Assurance',
+    description: 'We place quality at the forefront of all our products and services with stringent quality control processes to ensure our offerings meet the highest standards.',
+  },
+  {
+    name: 'Global Network',
+    description: 'Our extensive network of partners and suppliers extends across the globe, allowing us to source and deliver with efficiency and reliability.',
+  },
+  {
+    name: 'Innovation',
+    description: 'We remain at the forefront of innovation, quick to adapt to technological advancements and market changes.',
+  },
+  {
+    name: 'Customer-Centric',
+    description: 'We work closely with our clients to understand their specific needs, providing solutions tailored to their goals.',
+  },
+  {
+    name: 'Sustainability',
+    description: 'We are committed to sustainable business practices and environmental responsibility in all our operations.',
+  },
+  {
     name: 'Integrity',
-    description: 'We operate with honesty and transparency in all our dealings. What we promise, we deliver.',
-  },
-  {
-    name: 'Reliability',
-    description: 'Our clients can count on us. We show up on time, meet deadlines, and stand by our work.',
-  },
-  {
-    name: 'Partnership',
-    description: 'We see ourselves as an extension of your team, invested in your success, not just service providers.',
-  },
-  {
-    name: 'Security-First',
-    description: 'Every solution we implement prioritizes the security and protection of your business data.',
+    description: 'We operate with honesty and transparency in all our dealings, building trust through ethical business practices.',
   },
 ]
 
 const whyChooseUs = [
   {
-    title: 'Local Support, Local Understanding',
-    description: 'Based in Lusaka, we understand the unique challenges facing Zambian businesses. From power reliability to internet connectivity, we design solutions that work in our context.',
+    title: 'Comprehensive Solutions',
+    description: 'From commodity sourcing to ICT services, we offer end-to-end solutions across multiple industries, making us your single trusted partner.',
   },
   {
-    title: 'Responsive When It Matters',
-    description: 'When your systems are down, you need help fast. Our team is accessible and responds quickly to critical issues, minimizing downtime and disruption.',
+    title: 'Local Expertise, Global Reach',
+    description: 'Based in Lusaka with a global network of partners and suppliers, we combine local understanding with international capabilities.',
   },
   {
-    title: 'Pragmatic Solutions',
-    description: 'We do not believe in over-engineering or unnecessary complexity. We recommend what actually works for your business size and budget.',
+    title: 'Proven Track Record',
+    description: 'We have established ourselves as a highly regarded partner for businesses spanning various industries through consistent delivery.',
   },
   {
-    title: 'Long-Term Relationships',
-    description: 'We are not interested in one-off projects. We build lasting partnerships where we grow alongside your business.',
-  },
-]
-
-const team = [
-  {
-    name: 'Team Member',
-    role: 'Managing Director',
-    initials: 'MD',
-    bio: 'Leadership and strategic direction for Privtech Solutions.',
-  },
-  {
-    name: 'Team Member',
-    role: 'Technical Lead',
-    initials: 'TL',
-    bio: 'Oversees technical projects and ensures quality delivery.',
-  },
-  {
-    name: 'Team Member',
-    role: 'Systems Administrator',
-    initials: 'SA',
-    bio: 'Manages infrastructure and provides technical support.',
-  },
-  {
-    name: 'Team Member',
-    role: 'Developer',
-    initials: 'DV',
-    bio: 'Builds web and mobile applications for clients.',
+    title: 'Tailored Approach',
+    description: 'We understand that every business is unique and work closely with clients to provide customized solutions that meet specific needs.',
   },
 ]
 
 export default function AboutPage() {
   return (
-    <div className="pt-20 md:pt-24">
+    <div className="pt-24 md:pt-28">
       {/* Hero Section */}
       <section className="section bg-primary-900 african-pattern-strong">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-6 text-white">About Privtech Solutions</h1>
             <p className="text-lg text-primary-100 md:text-xl">
-              We are a Zambian IT company dedicated to helping businesses leverage technology securely and efficiently.
+              A multifaceted and forward-thinking company committed to excellence, integrity, and customer satisfaction.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* Company Overview */}
       <section className="section">
         <div className="container-custom">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="mb-6 text-neutral-900">Our Story</h2>
+              <h2 className="mb-6 text-neutral-900">Company Overview</h2>
               <div className="space-y-4 text-neutral-600">
                 <p>
-                  Privtech Solutions Limited was founded with a clear mission: to provide Zambian businesses with reliable, secure, and practical IT solutions without the complexity and high costs often associated with technology services.
+                  Privtech Solutions Limited is a multifaceted and forward-thinking company that excels in an extensive array of services, including commodity sourcing and supplying, mining equipment and consumables, agricultural inputs and products, ICT equipment, solutions, and services, as well as construction and consultancy.
                 </p>
                 <p>
-                  We noticed that many businesses struggled to find IT partners who understood their context—the infrastructure challenges, budget constraints, and specific needs of operating in Zambia. Too often, solutions were imported without consideration for local realities.
+                  We were founded with a steadfast commitment to uphold excellence, integrity, and unwavering customer satisfaction, which has allowed us to swiftly establish ourselves as a highly regarded partner for businesses spanning various industries.
                 </p>
                 <p>
-                  That is why we built Privtech. We are local, we understand the environment, and we design solutions that actually work here. From our base in Meanwood, Lusaka, we serve businesses across Zambia and the region, bringing enterprise-level IT capabilities within reach of organizations of all sizes.
+                  Our team of experienced professionals is ready to serve your needs, providing comprehensive solutions that are rooted in integrity and driven by excellence.
                 </p>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-video rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-                <ShieldIcon className="h-24 w-24 text-primary-600" />
-              </div>
+              <Image
+                src="/about-overview.png"
+                alt="Privtech Solutions Company Overview"
+                width={600}
+                height={400}
+                className="rounded-xl object-cover shadow-lg"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Values */}
+      {/* Vision & Mission */}
       <section className="section bg-neutral-50">
         <div className="container-custom">
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="mb-4 text-neutral-900">Our Mission</h2>
-            <p className="text-xl text-neutral-700">
-              To empower Zambian businesses with secure, reliable, and accessible technology solutions that drive growth and operational efficiency.
-            </p>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="card border border-neutral-100">
+              <h3 className="mb-4 text-xl font-bold text-primary-600">Our Vision</h3>
+              <p className="text-neutral-600">
+                Our vision at Privtech Solutions Limited is to ascend as a prominent and pioneering provider of comprehensive solutions that empower growth and prosperity for our clients and partners. We aspire to be recognized as leaders in every facet of our business, setting the standard for excellence and innovation.
+              </p>
+            </div>
+            <div className="card border border-neutral-100">
+              <h3 className="mb-4 text-xl font-bold text-primary-600">Our Mission</h3>
+              <p className="text-neutral-600">
+                Our mission is to consistently deliver high-quality products and services that empower our clients and partners to attain their objectives efficiently and sustainably. We are committed to upholding our values of integrity, reliability, and customer-centricity in all our endeavors.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="section-heading mt-16">
-            <h2 className="text-neutral-900">Our Values</h2>
+      {/* Our Values */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="section-heading">
+            <h2 className="text-neutral-900">Why Choose Privtech Solutions</h2>
           </div>
           <p className="section-subheading">
-            The principles that guide how we work with every client.
+            The principles and strengths that set us apart.
           </p>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {values.map((value) => (
               <div key={value.name} className="card border border-neutral-100">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 text-primary-600">
@@ -150,13 +149,13 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section">
+      <section className="section bg-neutral-50">
         <div className="container-custom">
           <div className="section-heading">
-            <h2 className="text-neutral-900">Why Choose Privtech</h2>
+            <h2 className="text-neutral-900">Our Competitive Advantage</h2>
           </div>
           <p className="section-subheading">
-            What sets us apart from other IT service providers.
+            What makes us the preferred partner for businesses across Zambia and the region.
           </p>
 
           <div className="grid gap-8 md:grid-cols-2">
@@ -175,38 +174,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="section bg-neutral-50">
-        <div className="container-custom">
-          <div className="section-heading">
-            <h2 className="text-neutral-900">Our Team</h2>
-          </div>
-          <p className="section-subheading">
-            Dedicated professionals committed to your success.
-          </p>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <div key={member.role} className="text-center">
-                <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-primary-600 text-white text-2xl font-bold">
-                  {member.initials}
-                </div>
-                <h3 className="text-lg font-semibold text-neutral-900">{member.name}</h3>
-                <p className="text-primary-600 font-medium">{member.role}</p>
-                <p className="mt-2 text-sm text-neutral-600">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="section">
         <div className="container-custom">
           <div className="rounded-2xl bg-gradient-to-r from-primary-700 to-primary-800 px-6 py-12 text-center md:px-12 md:py-16">
-            <h2 className="mb-4 text-white">Ready to Work Together?</h2>
+            <h2 className="mb-4 text-white">Ready to Partner with Us?</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-100">
-              Let us discuss how Privtech can support your business technology needs.
+              Discover how Privtech Solutions can be your trusted partner in sourcing, technology, construction, and consultancy, helping you achieve your business objectives.
             </p>
             <Button href="/contact" variant="white" size="lg">
               Get in Touch

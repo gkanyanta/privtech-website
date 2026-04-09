@@ -13,21 +13,21 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://privtech.net'),
   title: {
-    default: 'Privtech Solutions | IT Services & Cybersecurity in Zambia',
+    default: 'Privtech Solutions | Commodity Sourcing, Mining, Agriculture, ICT & Construction',
     template: '%s | Privtech Solutions',
   },
-  description: 'Privtech Solutions is a trusted IT company in Lusaka, Zambia offering cybersecurity, managed IT support, web development, cloud solutions, and payment gateway integration for businesses.',
+  description: 'Privtech Solutions Limited is a multifaceted company in Zambia offering commodity sourcing, mining equipment, agricultural inputs, ICT solutions, construction services, and consultancy.',
   keywords: [
-    'IT services Zambia',
-    'cybersecurity Lusaka',
-    'managed IT support Zambia',
-    'web development Zambia',
-    'cloud services Lusaka',
-    'payment gateway Zambia',
-    'IT company Lusaka',
-    'network infrastructure Zambia',
-    'domain email Zambia',
-    'app development Zambia',
+    'commodity sourcing Zambia',
+    'mining equipment Zambia',
+    'agricultural inputs Zambia',
+    'ICT solutions Lusaka',
+    'construction company Zambia',
+    'business consultancy Zambia',
+    'mining consumables',
+    'farm equipment Zambia',
+    'IT services Lusaka',
+    'infrastructure development Zambia',
   ],
   authors: [{ name: 'Privtech Solutions Limited' }],
   creator: 'Privtech Solutions Limited',
@@ -42,21 +42,21 @@ export const metadata: Metadata = {
     locale: 'en_ZM',
     url: 'https://privtech.net',
     siteName: 'Privtech Solutions',
-    title: 'Privtech Solutions | IT Services & Cybersecurity in Zambia',
-    description: 'Your trusted IT partner in Zambia. Cybersecurity, managed IT support, web development, cloud solutions, and more.',
+    title: 'Privtech Solutions | Excellence. Integrity. Solutions.',
+    description: 'A multifaceted company excelling in commodity sourcing, mining equipment, agricultural inputs, ICT solutions, construction, and consultancy in Zambia.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Privtech Solutions - Secure. Reliable. Local.',
+        alt: 'Privtech Solutions - Excellence. Integrity. Solutions.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privtech Solutions | IT Services & Cybersecurity in Zambia',
-    description: 'Your trusted IT partner in Zambia. Cybersecurity, managed IT support, web development, cloud solutions, and more.',
+    title: 'Privtech Solutions | Excellence. Integrity. Solutions.',
+    description: 'Commodity sourcing, mining equipment, agricultural inputs, ICT solutions, construction, and consultancy in Zambia.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -70,9 +70,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 }
 
 // JSON-LD Structured Data for LocalBusiness
@@ -81,16 +78,14 @@ const jsonLd = {
   '@type': 'LocalBusiness',
   '@id': 'https://privtech.net',
   name: 'Privtech Solutions Limited',
-  description: 'IT services company offering cybersecurity, managed IT support, web development, cloud solutions, and payment gateway integration in Zambia.',
+  description: 'A multifaceted company offering commodity sourcing and supply, mining equipment and consumables, agricultural inputs, ICT solutions, construction services, and business consultancy in Zambia.',
   url: 'https://privtech.net',
-  telephone: '',
   email: 'sales@privtech.net',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Plot A810, Meanwood Chamba Valley, Phase 1',
     addressLocality: 'Lusaka',
     addressRegion: 'Lusaka Province',
-    postalCode: '',
     addressCountry: 'ZM',
   },
   geo: {
@@ -105,20 +100,17 @@ const jsonLd = {
     closes: '17:00',
   },
   sameAs: [],
-  priceRange: '$$',
   areaServed: {
     '@type': 'Country',
     name: 'Zambia',
   },
   serviceType: [
-    'Cybersecurity Services',
-    'Managed IT Support',
-    'Web Development',
-    'App Development',
-    'Cloud Services',
-    'Payment Gateway Integration',
-    'Network Infrastructure',
-    'Digital Marketing',
+    'Commodity Sourcing and Supply',
+    'Mining Equipment and Consumables',
+    'Agricultural Inputs and Products',
+    'ICT Equipment and Solutions',
+    'Construction Services',
+    'Business Consultancy',
   ],
 }
 
@@ -130,7 +122,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <script
