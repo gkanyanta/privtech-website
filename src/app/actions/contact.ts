@@ -8,6 +8,13 @@ export interface FormState {
 }
 
 export async function submitContactForm(formData: FormData): Promise<FormState> {
+  // Honeypot spam check - if this hidden field is filled, it's a bot
+  const honeypot = formData.get('website') as string
+  if (honeypot) {
+    // Silently reject but return success to not tip off the bot
+    return { success: true, message: 'Thank you for your message. We will get back to you within 24 hours.' }
+  }
+
   const name = formData.get('name') as string
   const email = formData.get('email') as string
   const company = formData.get('company') as string

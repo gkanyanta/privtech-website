@@ -146,6 +146,12 @@ export default function ContactForm({ showAllFields = true }: ContactFormProps) 
         />
       </div>
 
+      {/* Honeypot field - hidden from real users, bots will fill it */}
+      <div className="absolute opacity-0 -z-10" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div>
         <Button type="submit" variant="primary" size="lg" disabled={isPending} className="w-full md:w-auto">
           {isPending ? 'Sending...' : 'Send Message'}

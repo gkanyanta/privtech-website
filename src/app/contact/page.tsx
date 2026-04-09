@@ -73,7 +73,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-neutral-900">WhatsApp</h3>
                     <a
-                      href="#"
+                      href="https://wa.me/260977000000"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-green-600 hover:text-green-700"
                       aria-label="Contact us on WhatsApp"
                     >

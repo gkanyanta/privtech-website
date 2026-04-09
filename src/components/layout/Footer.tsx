@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '@/components/ui/Icons'
-import { LinkedInIcon, FacebookIcon, TwitterIcon } from '@/components/ui/Icons'
+import { LinkedInIcon, FacebookIcon } from '@/components/ui/Icons'
 
 const footerLinks = {
   services: [
@@ -42,25 +42,22 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/privtech-solutions"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-400 transition-colors hover:text-primary-400"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/privtechsolutions"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-400 transition-colors hover:text-primary-400"
                 aria-label="Facebook"
               >
                 <FacebookIcon className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 transition-colors hover:text-primary-400"
-                aria-label="Twitter"
-              >
-                <TwitterIcon className="h-5 w-5" />
               </a>
             </div>
           </div>

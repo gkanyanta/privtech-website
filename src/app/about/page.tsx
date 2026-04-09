@@ -93,7 +93,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <Image
-                src="/about-overview.png"
+                src="/about-overview.jpg"
                 alt="Privtech Solutions Company Overview"
                 width={600}
                 height={400}
