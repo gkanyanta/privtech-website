@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '@/components/ui/Icons'
+import { MapPinIcon, EnvelopeIcon, ExternalLinkIcon } from '@/components/ui/Icons'
 import { LinkedInIcon, FacebookIcon } from '@/components/ui/Icons'
 
 const footerLinks = {
@@ -9,13 +9,17 @@ const footerLinks = {
     { name: 'Mining Equipment', href: '/services#mining-equipment' },
     { name: 'Agricultural Inputs', href: '/services#agriculture' },
     { name: 'ICT Solutions', href: '/services#ict-solutions' },
+    { name: 'Software Development', href: '/services#ict-solutions' },
     { name: 'Construction', href: '/services#construction' },
-    { name: 'Consultancy', href: '/services#consultancy' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Our Services', href: '/services' },
     { name: 'Contact', href: '/contact' },
+  ],
+  products: [
+    { name: 'BizTrack Admin', href: 'https://biztrack.privtech.net', external: true, description: 'Business management' },
+    { name: 'BizTrack Store', href: 'https://store.privtech.net', external: true, description: 'Online trading' },
   ],
 }
 
@@ -25,9 +29,9 @@ export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-white" role="contentinfo">
       <div className="container-custom py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <Link href="/" className="mb-6 inline-block">
               <Image
                 src="/privtech-logo.png"
@@ -38,7 +42,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mb-6 text-neutral-400">
-              A multifaceted company excelling in commodity sourcing, mining equipment, agricultural inputs, ICT solutions, construction, and consultancy.
+              A multifaceted company excelling in commodity sourcing, online trading, software development, mining equipment, agricultural inputs, ICT solutions, construction, and consultancy.
             </p>
             <div className="flex gap-4">
               <a
@@ -98,6 +102,26 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+
+            <h3 className="mb-4 mt-8 text-sm font-semibold uppercase tracking-wider text-white">
+              Our Products
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.products.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-1.5 text-neutral-400 transition-colors hover:text-white"
+                  >
+                    {link.name}
+                    <ExternalLinkIcon className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
+                  </a>
+                  <span className="text-xs text-neutral-600">{link.description}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact Info */}
@@ -121,10 +145,6 @@ export default function Footer() {
                 >
                   sales@privtech.net
                 </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <PhoneIcon className="h-5 w-5 flex-shrink-0 text-primary-400" />
-                <span className="text-neutral-400">Contact via form</span>
               </li>
             </ul>
           </div>
