@@ -38,6 +38,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // Serve WinDokta executables as file downloads, never rendered or sniffed by the browser
+        source: '/downloads/windokta/:file(.+\\.exe)',
+        headers: [
+          { key: 'Content-Type', value: 'application/octet-stream' },
+          { key: 'Content-Disposition', value: 'attachment' },
+          { key: 'Cache-Control', value: 'public, max-age=3600, must-revalidate' },
+        ],
+      },
     ]
   },
 

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Button from '@/components/ui/Button'
-import { MenuIcon, XMarkIcon, ChevronDownIcon, ComputerDesktopIcon, ShoppingBagIcon, ExternalLinkIcon } from '@/components/ui/Icons'
+import { MenuIcon, XMarkIcon, ChevronDownIcon, ComputerDesktopIcon, ShoppingBagIcon, ExternalLinkIcon, ShieldIcon } from '@/components/ui/Icons'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -27,7 +27,38 @@ const products = [
     href: 'https://store.privtech.net',
     icon: ShoppingBagIcon,
   },
+  {
+    name: 'WinDokta',
+    description: 'Windows PC tool',
+    href: '/products/windokta',
+    icon: ShieldIcon,
+    internal: true,
+  },
 ]
+
+// External products open in a new tab; internal product pages use client-side navigation.
+function ProductLink({
+  product,
+  className,
+  children,
+}: {
+  product: (typeof products)[number]
+  className: string
+  children: React.ReactNode
+}) {
+  if ('internal' in product && product.internal) {
+    return (
+      <Link href={product.href} className={className}>
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a href={product.href} target="_blank" rel="noopener noreferrer" className={className}>
+      {children}
+    </a>
+  )
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -86,22 +117,22 @@ export default function Header() {
             {/* Products Dropdown */}
             <div ref={dropdownRef} className="group relative">
               <button
-                className="flex items-center gap-1 text-sm font-medium text-neutral-700 transition-colors hover:text-primary-600"
+                type="button"
+                className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary-600 ${
+                  pathname.startsWith('/products') ? 'text-primary-600' : 'text-neutral-700'
+                }`}
                 aria-haspopup="true"
-                aria-expanded="false"
               >
                 Our Products
-                <ChevronDownIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                <ChevronDownIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
               </button>
-              <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                 <div className="w-60 overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-black/5">
                   {products.map((product, i) => (
-                    <a
+                    <ProductLink
                       key={product.name}
-                      href={product.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-start gap-3 px-4 py-3 transition-colors hover:bg-primary-50 ${
+                      product={product}
+                      className={`flex items-start gap-3 px-4 py-3 transition-colors hover:bg-primary-50 focus:bg-primary-50 focus:outline-none ${
                         i > 0 ? 'border-t border-neutral-100' : ''
                       }`}
                     >
@@ -112,8 +143,10 @@ export default function Header() {
                         <p className="text-sm font-semibold text-neutral-900">{product.name}</p>
                         <p className="text-xs text-neutral-500">{product.description}</p>
                       </div>
-                      <ExternalLinkIcon className="ml-auto h-3.5 w-3.5 flex-shrink-0 text-neutral-300" />
-                    </a>
+                      {!('internal' in product) && (
+                        <ExternalLinkIcon className="ml-auto h-3.5 w-3.5 flex-shrink-0 text-neutral-300" />
+                      )}
+                    </ProductLink>
                   ))}
                 </div>
               </div>
@@ -148,7 +181,7 @@ export default function Header() {
         <div
           id="mobile-menu"
           className={`overflow-hidden transition-all duration-300 lg:hidden ${
-            mobileMenuOpen ? 'max-h-[32rem] pb-6' : 'max-h-0'
+            mobileMenuOpen ? 'max-h-[40rem] pb-6' : 'max-h-0'
           }`}
         >
           <div className="flex flex-col gap-1 border-t border-neutral-200 pt-4">
@@ -168,25 +201,29 @@ export default function Header() {
 
             {/* Mobile Products Section */}
             <button
+              type="button"
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              aria-expanded={mobileProductsOpen}
+              aria-controls="mobile-products"
               className="flex items-center justify-between rounded-lg px-4 py-2 text-base font-medium text-neutral-700 hover:bg-neutral-50"
             >
               Our Products
               <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`overflow-hidden transition-all duration-200 ${mobileProductsOpen ? 'max-h-40' : 'max-h-0'}`}>
+            <div
+              id="mobile-products"
+              className={`overflow-hidden transition-all duration-200 ${mobileProductsOpen ? 'max-h-60' : 'invisible max-h-0'}`}
+            >
               {products.map((product) => (
-                <a
+                <ProductLink
                   key={product.name}
-                  href={product.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  product={product}
                   className="flex items-center gap-3 rounded-lg mx-2 px-4 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50"
                 >
                   <product.icon className="h-4 w-4 text-primary-600" />
                   {product.name}
-                  <ExternalLinkIcon className="ml-auto h-3.5 w-3.5 text-neutral-400" />
-                </a>
+                  {!('internal' in product) && <ExternalLinkIcon className="ml-auto h-3.5 w-3.5 text-neutral-400" />}
+                </ProductLink>
               ))}
             </div>
 

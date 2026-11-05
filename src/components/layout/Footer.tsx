@@ -20,6 +20,7 @@ const footerLinks = {
   products: [
     { name: 'BizTrack Admin', href: 'https://biztrack.privtech.net', external: true, description: 'Business management' },
     { name: 'BizTrack Store', href: 'https://store.privtech.net', external: true, description: 'Online trading' },
+    { name: 'Privtech WinDokta', href: '/products/windokta', external: false, description: 'Free Windows PC tool' },
   ],
 }
 
@@ -109,15 +110,21 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.products.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-1.5 text-neutral-400 transition-colors hover:text-white"
-                  >
-                    {link.name}
-                    <ExternalLinkIcon className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                  </a>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-1.5 text-neutral-400 transition-colors hover:text-white"
+                    >
+                      {link.name}
+                      <ExternalLinkIcon className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="flex items-center text-neutral-400 transition-colors hover:text-white">
+                      {link.name}
+                    </Link>
+                  )}
                   <span className="text-xs text-neutral-600">{link.description}</span>
                 </li>
               ))}
